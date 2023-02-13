@@ -11,7 +11,9 @@ let gradient=ctx.createRadialGradient(canvas.width/2,canvas.height/2,100,canvas.
 gradient.addColorStop(0,'red')
 gradient.addColorStop(0.4,'green')
 gradient.addColorStop(0.6,'cyan')
-gradient.addColorStop(1,'magenta')
+// gradient.addColorStop(1,'magenta')
+gradient.addColorStop(0.6,'aquamarine')
+
 
 // gradient.addColorStop(0,'red');
 // gradient.addColorStop(0.2,'yellow');
@@ -30,7 +32,7 @@ class Symbol{
         this.canvasHeight=canvasHeight;
     }
     draw(context){
-        this.text=this.characters.charAt(Math.floor(Math.random())*this.characters.length)
+        this.text=this.characters.charAt(Math.floor(Math.random()*this.characters.length))
         context.fillText(this.text,this.x*this.fontSize,this.y*this.fontSize);
         //умножаю на размер шрифта, для того чтобы при увеличении шрифта - всё выстроилось красиво
         if(this.y * this.fontSize>this.canvasHeight && Math.random()>0.98){
@@ -88,7 +90,7 @@ function animate(timeStamp) {
 
     requestAnimationFrame(animate)
 }
-animate()
+animate(0)
 
 window.addEventListener('resize',function () {
     canvas.width=window.innerWidth;
